@@ -1,0 +1,25 @@
+@font-face {
+	font-family: digital;
+	src: url(digital-7.ttf);
+}
+div {
+	font-family: digital;
+	color: red;
+	font-size: 100px;
+	display: block;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 21%;
+	height: 75px;
+	padding: 50px;
+	background: black;
+	text-align: center;
+	border: 10px solid rgba(50,50,50,1);
+}
+body {
+	background-image: radial-gradient(black,rgba(150,150,150));
+}

@@ -1,0 +1,80 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	text-decoration: none;
+}
+body {
+	min-height: 100vh;
+	background-image: linear-gradient(to bottom right, #8e44ad, #3498db);
+}
+h1 {
+	text-align: center;
+	font-size: 50px;
+	margin-bottom: 60px;
+}
+.sign-form {
+	width: 360px;
+	background: #f1f1f1;
+	height: 580px;
+	padding: 80px 40px;
+	border-radius: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+.textbox {
+	margin: 30px 0;
+	border-bottom: 2px solid #adadad;
+	position: relative;
+}
+.textbox input {
+	font-size: 15px;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0 5px;
+	width: 100%;
+	height: 40px;
+}
+.textbox span::before {
+	content: attr(data-placeholder);
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	color: #adadad;
+	transform: translateY(-50%);
+	z-index: -1;
+	transition: 0.5s;
+}
+.textbox span::after {
+	content: '';
+	position: absolute;
+	width: 0%;
+	height: 2px;
+	background: linear-gradient(to bottom right, #8e44ad, #3498db);
+	transition: 0.5s;
+}
+.focus + span::before {
+	top: -5px;
+}
+.focus + span::after {
+	width: 100%;
+}
+.signbtn {
+	display: block;
+	width: 100%;
+	height: 50px;
+	background: linear-gradient(120deg, #3498db, #8e44ad, #3498db);
+	background-size: 200%;
+	color: #fff;
+	border: none;
+	outline: none;
+	transition: 0.5s ease;
+	font-size: 15px;
+}
+.signbtn:hover {
+	background-position: right;
+}

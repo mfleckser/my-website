@@ -1,0 +1,145 @@
+<html>
+<head><title>Calculator</title>
+<style>
+.button {
+	margin:2;
+	width:100px;
+	font-size: 40px;
+	color: dark-gray;
+	border-radius: 10px;
+	border: none;
+	background-image: linear-gradient(to right, red, yellow);
+	cursor: pointer;
+}
+.buttonWide {
+	margin:2;
+	width:208px;
+	font-size:40px;
+	color: dark-gray;
+	border-radius: 10px;
+	border: none;
+	background-image: linear-gradient(to right, red, yellow);
+	cursor: pointer;
+}
+.button:hover {
+	background-image: linear-gradient(to left, red, yellow);
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.buttonWide:hover {
+	background-image: linear-gradient(to left, red, yellow);
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#textField {
+	width: 420;
+	font-size: 40px;
+	margin: 5;
+	color: lime;
+	background: black;
+	border-radius: 5px;
+	border: none;
+}
+form
+{
+	display: inline-block;
+	height: 42.5%;
+	margin-top: 170px;
+	margin-bottom: 170px;
+	padding: 50px;
+	text-align: center;
+	border-radius: 5px;
+	background-image: linear-gradient(to right, blue, purple);
+	border: 1px solid purple;
+}
+#textField:hover {
+
+}
+body
+{
+	background-image: linear-gradient(to left, blue, purple);
+	text-align: center;
+}
+</style>
+<link rel = "icon" type = "image/x-icon" href = "favicon.ico">
+</head>
+<body>
+<form>
+<input type = "text" id = "textField" autocomplete = "off"></br>
+
+<input type = "reset" class = "buttonWide" value = "Clear" id = "buttonClear">
+<input type = "button" class = "button" value = "<<<" id = "buttonBack" onclick = "Delete()">
+<input type = "button" class = "button" value = "+" id = "buttonAdd" onclick = "buttonPressed('+')"></br>
+
+<input type = "button" class = "button" value = "1" id = "button1" onclick = "buttonPressed('1')" accesskey = "1">
+<input type = "button" class = "button" value = "2" id = "button2" onclick = "buttonPressed('2')" accesskey = "2">
+<input type = "button" class = "button" value = "3" id = "button3" onclick = "buttonPressed('3')" accesskey = "3">
+<input type = "button" class = "button" value = "-" id = "buttonSubt" onclick = "buttonPressed('-')"></br>
+
+<input type = "button" class = "button" value = "4" id = "button4" onclick = "buttonPressed('4')" accesskey = "4">
+<input type = "button" class = "button" value = "5" id = "button5" onclick = "buttonPressed('5')" accesskey = "5">
+<input type = "button" class = "button" value = "6" id = "button6" onclick = "buttonPressed('6')" accesskey = "6">
+<input type = "button" class = "button" value = "*" id = "buttonMult" onclick = "buttonPressed('*')"></br>
+
+<input type = "button" class = "button" value = "7" id = "button7" onclick = "buttonPressed('7')" accesskey = "7">
+<input type = "button" class = "button" value = "8" id = "button8" onclick = "buttonPressed('8')" accesskey = "8">
+<input type = "button" class = "button" value = "9" id = "button9" onclick = "buttonPressed('9')" accesskey = "9">
+<input type = "button" class = "button" value = "/" id = "buttonDiv" onclick = "buttonPressed('/')"></br>
+
+<input type = "button" class = "buttonWide" value = "0" id = "button0" onclick = "buttonPressed('0')" accesskey = "0">
+<input type = "button" class = "button" value = "." id = "buttonDecimal" onclick = "buttonPressed('.')" accesskey = ".">
+<input type = "button" class = "button" value = "=" id = "buttonEquals" onclick = "showResult()">
+</form>
+</body>
+<script>
+var resultField = document.getElementById("textField");
+function buttonPressed(btn) {
+	resultField.value = resultField.value + btn;
+}//end buttonPressed
+
+document.addEventListener("keydown", keyPush);
+function keyPush(event) {
+	if(resultField.value && event.keyCode == 13) {
+		event.preventDefault();
+		resultField.value = solve(resultField.value);
+	}//end if
+	if(event.key == 0 || event.key == 1 || event.key == 2 || event.key == 3 || event.key == 4 || event.key == 5 || event.key == 6 || event.key == 7 || event.key == 8 || event.key == 9 || event.key == '-' || event.key == '/' || event.key == '*') {
+		buttonPressed(event.key);
+	}//end if
+	if(event.key == 'c') {
+		resultField.value = "";
+	}//end if
+	if(event.key == '=') {
+		buttonPressed('+');
+	}//end if
+	if(event.keyCode == 8) {
+		Delete();
+	}//end if
+	if(event.keyCode == 190) {
+		buttonPressed('.');
+	}//end if
+}//end keyPush
+
+function solve(equation) {
+	var check = 0;
+	for(var i = 0; i < equation.length; i++) {
+		if(equation[i] == 1 || equation[i] == 2 || equation[i] == 3 || equation[i] == 4 || equation[i] == 5 || equation[i] == 6 || equation[i] == 7 || equation[i] == 8 || equation[i] == 9 || equation[i] == 0 || equation[i] == "+" || equation[i] == "-" || equation[i] == "." || equation[i] == "/" || equation[i] == "*") {
+			check++;
+		} else {
+			alert("VIRUS DETECTED (it's you stop being toxic)");
+			return "stop trying to hack me";
+		}//end if else
+		if(check == equation.length) {
+			return eval(equation);
+		}//end if
+	}//end for
+}//end solve
+
+function showResult() {
+	resultField.value = solve(resultField.value);
+}//end showResult
+
+function Delete() {
+	resultField.value = resultField.value.substring(0,resultField.value.length-1);
+}//end delete
+
+</script>
+</html>
