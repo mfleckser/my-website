@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Home</title>
+	<link rel = "stylesheet" type = "text/css" href = "../static/Home Page/main.css">
+	<link rel = "icon" href = "../static/Home Page/pics/favicon.ico" type = "icon/x-icon">
+</head>
+<body>
+<div id = "navbar">
+	<input type = "button" id = "projbtn" value = "Projects" class = "select" onclick = "Select(1)">
+	<input type = "button" id = "highbtn" value = "High Scores" class = "unselect" onclick = "Select(2)">
+	<input type = "button" id = "recordbtn" value = "Records" class = "unselect" onclick = "Select(3)">
+	<a href = "/" id = "log-out">Log-Out</a>
+</div>
+<div id = "shown">
+	<div id = "projects">
+		<h1>Projects</h1><ul>
+		<li><a href = "/platformer" target = "_blank"><img src = "../static/Home Page/pics/platformer.png"></a></li>
+		<li><a href = "/minesweeper" target = "_blank"><img src = "../static/Home Page/pics/minesweeper.png"></a></li>
+		<li><a href = "/calculator" target = "_blank"><img src = "../static/Home Page/pics/calculator.png"></a></li>
+		<li><a href = "/space-invaders" target = "_blank"><img src = "../static/Home Page/pics/invaders.png"></a></li>
+		<li><a href = "/snake" target = "_blank"><img src = "../static/Home Page/pics/snake.png"></a></li></ul>
+	</div>
+</div>
+</body>
+<script src = "menu.js"></script>
+<script src = "main.js"></script>
+</html>
