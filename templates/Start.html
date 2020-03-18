@@ -1,23 +1,23 @@
 <html>
 <head>
-	<title>Login</title>
-	<link rel = "stylesheet" type = "text/css" href = "../static/Login Page/main.css">
+    <title>Login</title>
+    <link rel = "stylesheet" type = "text/css" href = "../static/Login Page/main.css">
 </head>
 <body>
-<form action = "/home" class = "login-form" id = "login" method= "post" onsubmit = "return validate()">
-	<h1>Login</h1>
-	
-	<div class = "textbox">
-		<input name = "username" type = "text" id = "username" autocomplete = "off" required>
-		<span data-placeholder = "Username"></span>
-	</div>
-	<div class = "textbox">
-		<input name = "password" type = "password" id = "password" autocomplete = "off" required>
-		<span data-placeholder = "Password"></span>
-	</div>
+<form action = "/home" class = "login-form" id = "login" method= "post" <!--onsubmit = "return validate()"-->>
+    <h1>Login</h1>
 
-	<input type = "submit" value = "Login" class = "logbtn" id = "submit">
-	<div class = "sign-txt">First time? <a href = "/signup">Sign up</a></div>
+    <div class = "textbox">
+        <input name = "username" type = "text" id = "username" autocomplete = "off" required>
+        <span data-placeholder = "Username"></span>
+    </div>
+    <div class = "textbox">
+        <input name = "password" type = "password" id = "password" autocomplete = "off" required>
+        <span data-placeholder = "Password"></span>
+    </div>
+
+    <input type = "submit" value = "Login" class = "logbtn" id = "submit">
+    <div class = "sign-txt">First time? <a href = "/signup">Sign up</a></div>
 </form>
 <script src = "../static/Login Page/main.js"></script>
 </body>
