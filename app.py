@@ -1,9 +1,8 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = "sdfj_+183&4/.>"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 db = SQLAlchemy(app)
 
@@ -30,7 +29,6 @@ class User(db.Model):
 def Start():
 	if request.method == "POST":
 		pass
-	flash("test")
 	return render_template("Start.html",failed=False)
 
 @app.route("/signup",methods=["POST","GET"])
