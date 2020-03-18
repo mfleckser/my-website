@@ -1,31 +1,37 @@
 <html>
 <head>
-	<title>Sign Up</title>
-	<link rel = "stylesheet" type = "text/css" href = "../static/Sign Up/main.css">
+    <title>Sign Up</title>
+    <link rel = "stylesheet" type = "text/css" href = "../static/Sign Up/main.css">
 </head>
 <body>
-<form action = "/" class = "sign-form" id = "sign" method= "post" onsubmit = "return validate()">
-	<h1>Sign Up</h1>
+<form action = "/" class = "sign-form" id = "sign" method= "post"> <!--onsubmit = "return validate()"-->
+    <h1>Sign Up</h1>
 
-	<div class = "textbox">
-		<input name = "name" type = "text" id = "name" autocomplete = "off" required>
-		<span data-placeholder = "Name"></span>
-	</div>
-	<div class = "textbox">
-		<input name = "username" type = "text" id = "username" autocomplete = "off" required>
-		<span data-placeholder = "Username"></span>
-	</div>
-	<div class = "textbox">
-		<input name = "password" type = "password" id = "password" autocomplete = "off" required>
-		<span data-placeholder = "Password"></span>
-	</div>
-	<div class = "textbox">
-		<input name = "confirm" type = "password" id = "confirm" autocomplete = "off" required>
-		<span data-placeholder = "Confirm Password"></span>
-	</div>
+    <div class = "textbox">
+        <input name = "name" type = "text" id = "name" autocomplete = "off" required>
+        <span data-placeholder = "Name"></span>
+    </div>
+    <div class = "textbox">
+        <input name = "username" type = "text" id = "username" autocomplete = "off" required>
+        <span data-placeholder = "Username"></span>
+    </div>
+    <div class = "textbox">
+        <input name = "password" type = "password" id = "password" autocomplete = "off" required>
+        <span data-placeholder = "Password"></span>
+    </div>
+    <div class = "textbox">
+        <input name = "confirm" type = "password" id = "confirm" autocomplete = "off" required>
+        <span data-placeholder = "Confirm Password"></span>
+    </div>
 
-	<input type = "submit" value = "Sign Up" class = "signbtn" id = "submit">
+    <input type = "submit" value = "Sign Up" class = "signbtn" id = "submit">
 </form>
 </body>
+{% if message != "" %}
+<span id = "message" style = "display:none;">{{ message }}</span>
+<script>
+alert(document.getElementById("message").innerHTML);
+</script>
+{% endif %}
 <script src = "../static/Sign Up/main.js"></script>
 </html>

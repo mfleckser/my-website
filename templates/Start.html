@@ -4,7 +4,7 @@
     <link rel = "stylesheet" type = "text/css" href = "../static/Login Page/main.css">
 </head>
 <body>
-<form action = "/home" class = "login-form" id = "login" method= "post" <!--onsubmit = "return validate()"-->>
+<form action = "/home" class = "login-form" id = "login" method= "post"> <!--onsubmit = "return validate()"-->
     <h1>Login</h1>
 
     <div class = "textbox">
@@ -19,6 +19,11 @@
     <input type = "submit" value = "Login" class = "logbtn" id = "submit">
     <div class = "sign-txt">First time? <a href = "/signup">Sign up</a></div>
 </form>
+{% if failed == True %}
+<script>
+alert("Username or Password is Incorrect");
+</script>
+{% endif %}
 <script src = "../static/Login Page/main.js"></script>
 </body>
 </html>
